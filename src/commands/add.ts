@@ -1,25 +1,35 @@
+import fs from 'fs/promises';
+import { resolve } from 'path';
+import semver from 'semver';
 import chalk from 'chalk';
-import { validateComponent } from '../utils/validation.js';
-import { scaffoldComponent } from '../utils/scaffold.js';
-import { checkLicense } from '../utils/license.js';
-import type { AddOptions } from '../types.js';
+import { CLIError } from '../utils/error';
 
-export async function add(componentName: string, options: AddOptions): Promise<void> {
-  console.log(chalk.blue(`Adding ${componentName} component...`));
-
+export function validateComponent(componentName: string): void {
   // Validate component name
-  validateComponent(componentName);
-
-  // Check license for premium features
-  if (options.premium) {
-    const isValid = await checkLicense();
-    if (!isValid) {
-      throw new Error('Premium features require a valid license key. Visit https://nexus-ui.dev/premium to learn more.');
-    }
+  if (!componentName) {
+    throw new CLIError(
+      'Component name is required.',
+      'INVALID_COMPONENT_NAME'
+    );
   }
 
-  // Scaffold the component
-  await scaffoldComponent(componentName, options);
+  if (!/^[A-Z][A-Za-z0-9]+$/.test(componentName)) {
+    throw new CLIError(
+      'Component name must start with a capital letter and contain only alphanumeric characters.',
+      'INVALID_COMPONENT_NAME'
+    );
+  }
 
-  console.log(chalk.green(`✔ Successfully added ${componentName} component`));
+  // Check if component already exists
+  const componentDir = resolve(process.cwd(), 'src/components', componentName);
+  try {
+    fs.access(componentDir);
+    throw new CLIError(
+      `Component ${componentName} already exists at ${componentDir}`,
+      'COMPONENT_EXISTS'
+    );
+  } catch (error) {
+    // If error is thrown, it means the directory doesn't exist, which is what we want
+    if (error instanceof CLIError) throw error;
+  }
 }
