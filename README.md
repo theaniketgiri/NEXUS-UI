@@ -2,7 +2,7 @@
 
 A powerful CLI tool for scaffolding customizable React Native components.
 
-[![npm version](https://img.shields.io/npm/v/nexus-ui.svg)](https://www.npmjs.com/package/nexus-ui)
+[![npm version](https://img.shields.io/npm/v/nexus-ui.svg)](https://www.npmjs.com/package/naxusui)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Features
@@ -16,9 +16,9 @@ A powerful CLI tool for scaffolding customizable React Native components.
 ## Installation
 
 ```bash
-npm install -g nexus-ui
+npm install -g naxusui
 # or use directly with npx
-npx nexus-ui add <component>
+npx naxusui add <component>
 ```
 
 ## Usage
@@ -44,7 +44,7 @@ Unlock advanced features with a premium license:
 - Analytics integration
 - Priority support
 
-[Get Premium License](https://nexus-ui.dev/premium)
+[Get Premium License](https://nexus-ui.dev/premium) [ In dovelpment]
 
 ## Documentation
 
