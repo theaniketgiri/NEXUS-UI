@@ -1,5 +1,5 @@
 {
-  "name": "nexus-ui",
+  "name": "naxusui",
   "version": "0.1.0",
   "description": "A CLI tool for scaffolding customizable React Native components",
   "private": false,
