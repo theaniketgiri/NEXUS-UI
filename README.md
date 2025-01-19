@@ -44,7 +44,7 @@ Unlock advanced features with a premium license:
 - Analytics integration
 - Priority support
 
-[Get Premium License](https://nexus-ui.dev/premium) [ In dovelpment]
+[Get Premium License](https://nexus-ui.dev/premium) [ In development]
 
 ## Documentation
 
