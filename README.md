@@ -26,7 +26,7 @@ npx naxusui add <component>
 Add a component to your project:
 
 ```bash
-nexus-ui add button
+naxusui add button
 ```
 
 Available components:
